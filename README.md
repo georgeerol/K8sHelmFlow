@@ -32,7 +32,7 @@ It includes the setup for the Kubernetes Dashboard, which provides a user-friend
    To deploy the Kubernetes Dashboard, apply the YAML files in the `k8s` directory:
 
    ```bash
-   kubectl apply -f k8s/
+   kubectl apply -f k8s/ --validate=false
    ```
 
    This will set up the Kubernetes Dashboard with the necessary roles and permissions.
@@ -55,11 +55,23 @@ It includes the setup for the Kubernetes Dashboard, which provides a user-friend
 
    ```bash
    helm repo add apache-airflow https://airflow.apache.org
-   helm install airflow apache-airflow/airflow --namespace airflow --create-namespace --debug
+    helm install airflow apache-airflow/airflow -f k8s/values.yaml --namespace airflow --create-namespace --debug
    ```
 
    This will deploy Airflow with the settings defined in `values.yaml`.
 
+4. **Uninstall Apache Airflow:**
+
+   If you need to uninstall Apache Airflow, you can do so using Helm with the following command:
+
+   ```bash
+   helm uninstall airflow -n airflow
+   ```
+
+   This command removes the Airflow deployment from the specified namespace (`airflow` in this case)
+
+
+This added section provides a straightforward method for users to remove Airflow from their Kubernetes cluster using Helm.
 ### Usage
 
 - **Kubernetes Dashboard:** Use the Dashboard to monitor and manage the Kubernetes cluster.
