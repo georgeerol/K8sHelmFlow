@@ -70,8 +70,6 @@ It includes the setup for the Kubernetes Dashboard, which provides a user-friend
 
    This command removes the Airflow deployment from the specified namespace (`airflow` in this case)
 
-
-This added section provides a straightforward method for users to remove Airflow from their Kubernetes cluster using Helm.
 ### Usage
 
 - **Kubernetes Dashboard:** Use the Dashboard to monitor and manage the Kubernetes cluster.
